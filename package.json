@@ -1,0 +1,16 @@
+{
+  "name": "zenquote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "quote.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "nodemailer": "^6.9.13",
+    "prettier": "^3.2.5"
+  }
+}

@@ -1,0 +1,4 @@
+node_modules/*
+zenquote.pem
+zenquote.zip
+crontab.log
