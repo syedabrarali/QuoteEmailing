@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 let reciepientsArray = ['abrar.ali75@gmail.com',
-'zayedali768@gmail.com', 'simeensheikh108@gmail.com', 'nihal.syed2012@gmail.com', 'ashhamareeb8@gmail.com', 'zakiramariam123@gmail.com']
+'zayedali768@gmail.com', 'simeensheikh108@gmail.com', 'nihal.syed2012@gmail.com', 'ashhamareeb8@gmail.com', 'zakiramariam123@gmail.com', 'frkrocks@gmail.com']
 let reciepients = reciepientsArray.toString();
 
 const transporter = nodemailer.createTransport({
