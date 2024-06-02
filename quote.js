@@ -63,6 +63,9 @@ async function getQuote() {
                     </div> 
                     <div class="content" style="padding: 20px;
                                 text-align: center;">
+                        <div>
+                          <h3>Hadith of the Day</h3>
+                        </div>
                         <div class="hadith" style="font-size: 24px;
                                 color: #333333;
                                 margin: 20px 0;">${hadithData.hadiths[0].text}
@@ -72,6 +75,9 @@ async function getQuote() {
                                 style="font-size: 18px;
                                 color: #777777;
                                 margin-top: -10px;">- From "${hadithData.metadata.name}", No.${hadithData.hadiths[0].hadithnumber}
+                        </div>
+                        <div>
+                          <h3>Hadith of the Day</h3>
                         </div>
                         <div class="quote" style="font-size: 24px;
                                 color: #333333;
