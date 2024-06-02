@@ -29,7 +29,7 @@ const transporter = nodemailer.createTransport({
   let randomArray = []; 
   let randomNumber = getRandomInt(1, 4341);
   randomArray.push(JSON.parse(JSON.stringify(randomNumber))); //this deep copies the randomNumber object
-  console.log(rObj);
+  
 
   //TODO
   //1.Add the randomNumber generated on each execution to an array and add logic to before trigerring the hadees api
