@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 const { Pool } = require("pg");
 require('dotenv').config();
 let reciepientsArray = ['abrar.ali75@gmail.com',
-'zayedali768@gmail.com', 'simeensheikh108@gmail.com', 'nihal.syed2012@gmail.com', 'ashhamareeb8@gmail.com', 'zakiramariam123@gmail.com', 'frkrocks@gmail.com']
+'zayedali768@gmail.com', 'simeensheikh108@gmail.com', 'nihal.syed2012@gmail.com', 'ashhamareeb8@gmail.com', 'zakiramariam123@gmail.com', 'frkrocks@gmail.com', 'mohdismail767@gmail.com', 'md.ismail.rr@gmail.com']
 let reciepients = reciepientsArray.toString();
 let hadees_number;
 let hadees_number_rowCount;
@@ -96,7 +96,7 @@ async function getQuote() {
          console.log(`Zen quote of the day: "${quoteData[0].q}" by "${quoteData[0].a}"`);
         let mailOptions = {
             from: '"ZenTimes" <abrar.ali75@gmail.com>', // sender address
-            to: 'abrar.ali75@gmail.com',
+            to: reciepients,
             subject: "Quotes of the Day🪷", // Subject line
             text: `Quotes of the day: Hadith is from the book - ${hadithData.metadata.name}, 
                    hadith Number - ${hadithData.hadiths[0].hadithnumber} and the hadees is 
