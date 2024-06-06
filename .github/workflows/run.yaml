@@ -1,23 +1,35 @@
-name: Execute quote.js script
-on: [push]
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  execute:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checksout Repo
-        uses: actions/checkout@v4
-      
-      - name: Install SSH Client
-        run: sudo apt-get install -y openssh-client
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: SSH into ec2 server
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SERVER_PEM_KEY }}
-        run: |
-          ssh -tt -i "$SSH_PRIVATE_KEY" ec2-user@ec2-15-207-113-133.ap-south-1.compute.amazonaws.com
-      
-      - name: List all the dir
-        run: |
-          ls -a
+    - name: Install SSH client
+      run: sudo apt-get install -y openssh-client
 
-     
+    - name: Copy files to GitHub runner
+      run: |
+        mkdir -p ~/repo_copy
+        cp -R . ~/repo_copy
+
+    - name: Copy files to remote server
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.EC2_SERVER_PEM_KEY }}
+        SSH_HOST: ${{ secrets.SSH_HOST }}
+        SSH_USER: ${{ secrets.SSH_USER }}
+        REMOTE_DIR: ${{ secrets.REMOTE_DIR }}
+      run: |
+        mkdir -p ~/.ssh
+        echo "$EC2_SERVER_PEM_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts
+        scp -r ~/repo_copy/* $SSH_USER@$SSH_HOST:$REMOTE_DIR
