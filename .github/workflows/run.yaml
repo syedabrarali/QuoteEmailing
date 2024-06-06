@@ -7,6 +7,32 @@ jobs:
       - uses: actions/checkout@v4
       - name: SSH into ec2 server
         run: |
-          ssh -tt -i "${{ secrets.EC2_SERVER_PEM_KEY }}" ec2-user@ec2-15-207-113-133.ap-south-1.compute.amazonaws.com
+          ssh -tt -i "-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAlQyXUk7t0HiLJC1kKpBp6s+biD20OHthB3a8vewBk9L74T5x
+zTNzDLeNTdCnnFKiJozcom/MW24BFXbWm9EHbsWOTLYFi9TvyNStoKZdggmToKz3
+GtXZO0QvgakB49d7UFkQBhFMoRj7fZIEf4IqxxDHRrHwpZeaavlv6oqmnD1EH+Nw
+lu5bTDbx7YjD6D8tUIiZx6Pra3zRDfdH4xaHnhGrpYPHMYZQsStiM9A86Uu+01Pf
+AN1BaNalQW0Wc/4HZlIVUJLLBl9yUfdBEG7301ybzUwqmcniPOK5EVvp2D5XtKx6
+1TNd/unprXKaZ0lfYJ9Z/27sNMaboGhjtZ/Y/QIDAQABAoIBACG9u/PSElwDLdx+
+uhI4pwGVBeyNq2Kt64U5B/kmmCTSulp/PFvrrbvPQZnABnGI81QuxzOug2CfQneN
+c3/KjhgxeMk823yQM8gO/U9E2h459MWG4lmc15RnFyoPDHJ7sVq7DrmQ6Pv/H8+J
+YqNK4Ew4LCSA261g6IAW/5Lk2Fq92hKex7lS8CSw3EAxkdJkBbJg1kUoOh7loLRU
+zBkMHt1o7H6LpBan1aJmgsWQBVy91QHNoVA221qNIwRFrkj4Q68RVoc22C3D3jv3
+CeXSSlcQe9xi5G778akc7CDd10xACLEkzJt9SRPLz5tJzE2ehcuhW59jvoAUbtvL
+rbOfSLECgYEA5/DA+yGlbUX+R2JcoX5hpxGFclURglXJZ23yhmudAH3Yg5r4GKbd
+nCzAV/7cAUrsdG4m20ySNl+5RrVlaiJyTSGKslHMTcu4uwmkR9/X/FgIk/+oPJaP
+3AtPPOiA1xr+5bZUJqcM8CCe4e96q/Cbl/vnjr1G1ntumsEf4NZDZqcCgYEApIKi
+up2dzPgxVWwU1ueoymXT3QIX11OvsTxBw14SNFfJ/8+ZXyCkxBPXhWiaURI0MO7C
+QPaeoqaukCYketqCVFXykQXcYSB9yUzJ3W2rne88PJbtj7J3GM+oyolzm4DdoDet
+DohltkDFalHtCH6i8+ABLS/OzsXsjjlP8I8127sCgYEAm87ORKV4lGx1gYyg/1d/
+0BRkGcbtqSlpz5I7XnNCF8dyQA5FZYIK0tP5LeOl9TRYnWo1rhHFEsPBGa/XfbHA
+KPJEUr/CR+x3nyW99w528CxPLuSKJpFZ+I6cXyUtD9MxsiyGYSTM+y5erRYLyR8r
+1rBBAFFEGeb3CPx9JrOouXcCgYBQ6TNyB116V0OkWOEzBYM98LEwDPx+2lkaGaHa
+neTkO51NJOSxJdQD4CJrKhRj9UkYHAYMf39sTgCjQy9EAT6CjjccXr6SQrG7FPpf
+3rW+mtCMmErFFyh+WnwRCWODwvC+AUQrVqh36AlwjlS/jdFFkxHhEJdtmWkMVmHb
+1gPOSwKBgQCrzNSxGAToquPIc9PNosdBaRco//ftYLzdprtqCvgFRbK8AXtuCx8I
+gsVNdYp5szndng+pAweXLgZRORur6qb1GVdnrd5EoLvH4Zxrvzit5serYtpivKkv
+vI2gZNBYrlvePVpAmxK2AuDvHITpgnCN1rN9C7Eb+g0B8HGp5xZQng==
+-----END RSA PRIVATE KEY-----" ec2-user@ec2-15-207-113-133.ap-south-1.compute.amazonaws.com
 
      
