@@ -3,20 +3,18 @@ on: [push]
 jobs:
   execute:
     runs-on: ubuntu-latest
-    env: 
-      PG_USER: abrar
-      PG_PW: 25480863
-      PG_HOST: 15.207.113.133
-      PG_PORT: 5434
-      PG_DB: zenquote
-      NODEMAILER_HOST: smtp.gmail.com
-      NODEMAILER_PORT: 465
-      NODEMAILER_AUTH_USER: abrar.ali75@gmail.com
-      NODEMAILER_AUTH_PW: saejwrjyxopcjdpr
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '18.17.0'
-      - run: npm install
-      - run: node quote.js
+      - name: SSH into ec2 server
+        shell: bash
+        env: 
+          ec2_server_pem_file: ${{ secrets.EC2_SERVER_PEM_KEY }}
+        run: |
+          ssh -i '$ec2_server_pem_file' ec2-user@ec2-15-207-113-133.ap-south-1.compute.amazonaws.com
+        run: |
+          echo "SSH successfully"
+        run: |
+          mkdir testfolder
+        run: | 
+          cp -r . testfolder/
+     
