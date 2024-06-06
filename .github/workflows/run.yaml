@@ -6,8 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: SSH into ec2 server
-        shell: bash
         run: |
-          ssh -i "${{ secrets.EC2_SERVER_PEM_KEY }}" ec2-user@ec2-15-207-113-133.ap-south-1.compute.amazonaws.com
+          ssh -tt -i "${{ secrets.EC2_SERVER_PEM_KEY }}" ec2-user@ec2-15-207-113-133.ap-south-1.compute.amazonaws.com
 
      
