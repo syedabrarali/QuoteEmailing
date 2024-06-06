@@ -11,10 +11,5 @@ jobs:
           ec2_server_pem_file: ${{ secrets.EC2_SERVER_PEM_KEY }}
         run: |
           ssh -i '$ec2_server_pem_file' ec2-user@ec2-15-207-113-133.ap-south-1.compute.amazonaws.com
-        run: |
-          echo "SSH successfully"
-        run: |
-          mkdir testfolder
-        run: | 
-          cp -r . testfolder/
+
      
