@@ -1,0 +1,22 @@
+name: Execute quote.js script
+on: [push]
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    env: 
+      PG_USER: abrar
+      PG_PW: 25480863
+      PG_HOST: 15.207.113.133
+      PG_PORT: 5434
+      PG_DB: zenquote
+      NODEMAILER_HOST: smtp.gmail.com
+      NODEMAILER_PORT: 465
+      NODEMAILER_AUTH_USER: abrar.ali75@gmail.com
+      NODEMAILER_AUTH_PW: saejwrjyxopcjdpr
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.17.0'
+      - run: npm install
+      - run: node quote.js

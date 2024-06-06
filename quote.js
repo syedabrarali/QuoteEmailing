@@ -96,7 +96,7 @@ async function getQuote() {
          console.log(`Zen quote of the day: "${quoteData[0].q}" by "${quoteData[0].a}"`);
         let mailOptions = {
             from: '"ZenTimes" <abrar.ali75@gmail.com>', // sender address
-            to: reciepients,
+            to: 'abrar.ali75@gmail.com',
             subject: "Quotes of the Day🪷", // Subject line
             text: `Quotes of the day: Hadith is from the book - ${hadithData.metadata.name}, 
                    hadith Number - ${hadithData.hadiths[0].hadithnumber} and the hadees is 
