@@ -42,7 +42,7 @@ let hadees_number_rowCount;
       const res = await pool.query(queryText);
       hadees_number = res.rows;
       hadees_number_rowCount = res.rowCount;
-      console.log(res.rows);
+      // console.log(res.rows);
       console.log(hadees_number);
       console.log(hadees_number_rowCount);
     } catch (error) {
@@ -64,8 +64,9 @@ let hadees_number_rowCount;
 
 async function getQuote() {
     try {
-        const quoteResponse = await fetch('https://zenquotes.io/api/random');
-        const quoteData = await quoteResponse.json();
+        // removing fetching quotes as my montly api limit is exhausted, so only sending hadees.
+        // const quoteResponse = await fetch('https://zenquotes.io/api/random');
+        // const quoteData = await quoteResponse.json();
 
 
         // below is used to check if the randomNumber generated has already been used before or not
@@ -93,15 +94,20 @@ async function getQuote() {
         let timestamp = new Date().toLocaleString();
         console.log(`Date triggered - ${timestamp}`)
         console.log(`Hadith is from the book - ${hadithData.metadata.name}, hadith Number - ${hadithData.hadiths[0].hadithnumber} and the hadees is - ${hadithData.hadiths[0].text}`);
-         console.log(`Zen quote of the day: "${quoteData[0].q}" by "${quoteData[0].a}"`);
+        //  console.log(`Zen quote of the day: "${quoteData[0].q}" by "${quoteData[0].a}"`);
+
+
         let mailOptions = {
             from: '"ZenTimes" <abrar.ali75@gmail.com>', // sender address
             to: 'abrar.ali75@gmail.com',
-            subject: "Quotes of the Day🪷", // Subject line
+            subject: "Hadees of the Day🪷", // Subject line
             text: `Quotes of the day: Hadith is from the book - ${hadithData.metadata.name}, 
                    hadith Number - ${hadithData.hadiths[0].hadithnumber} and the hadees is 
-                   - ${hadithData.hadiths[0].text}"${quoteData[0].q}" by "${quoteData[0].a}"`, // plain text body
-            //below html was directly added from the quote.html file in the directory.
+                   - ${hadithData.hadiths[0].text}`, // plain text body
+
+
+            //below html was directly added from the quote.html file in the directory, In this I have removed the 
+            // div where you add quotes and just kept the hadees div.
             html: 
                 `<div class="container" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
                     <div class="header" 
@@ -123,19 +129,6 @@ async function getQuote() {
                                 style="font-size: 18px;
                                 color: #777777;
                                 margin-top: -10px;">- From "${hadithData.metadata.name}", No.${hadithData.hadiths[0].hadithnumber}
-                        </div>
-                        <div>
-                          <h1><u>Quote of the Day</u></h1>
-                        </div>
-                        <div class="quote" style="font-size: 24px;
-                                color: #333333;
-                                margin: 20px 0;">${quoteData[0].q}
-                        </div>
-                        <div 
-                            class="author" 
-                            style="font-size: 18px;
-                            color: #777777;
-                            margin-top: -10px;">- ${quoteData[0].a}
                         </div>
                     </div>
                 </div>`
