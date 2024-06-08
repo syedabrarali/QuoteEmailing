@@ -46,7 +46,7 @@ let hadees_number_rowCount;
       console.log(hadees_number);
       console.log(hadees_number_rowCount);
     } catch (error) {
-      console.log(error);
+      console.log(`Error in getHadeesDatafromPG function: ${error}`);
     } 
   };
 
@@ -57,7 +57,7 @@ let hadees_number_rowCount;
       const queryText = `INSERT INTO hadees_sent (hadees_no) VALUES ('${randomNumber}')`;
       const res = await pool.query(queryText);
     } catch (error) {
-      console.log(error);
+      console.log(`Error in addHadeesDatatoPG function: ${error}`);
     }
   };
 
@@ -79,12 +79,12 @@ async function getQuote() {
       }
 
         //if the generated randomNumber hasn't been used, then I am logging it below and then added it to the db.
-        console.log(`the random number generated ${randomNumber} was unqiue and wasn't found in the already sent hadees numbers and it will used to called the hadees api`);
+        console.log(`The random number generated ${randomNumber} was unqiue and wasn't found in the already sent hadees numbers and it will used to called the hadees api`);
         try {
           const queryText = `INSERT INTO hadees_sent (hadees_no) VALUES ('${randomNumber}')`;
           const res = await pool.query(queryText);
         } catch (error) {
-          console.log(error);
+          console.log(`Error while trying to insert the new random number into the DB: ${error}`);
         } finally {
           await pool.end();
         }
@@ -92,14 +92,14 @@ async function getQuote() {
         const hadithResponse = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-ibnmajah/${randomNumber}.min.json`);
         const hadithData = await hadithResponse.json();
         let timestamp = new Date().toLocaleString();
-        console.log(`Date triggered - ${timestamp}`)
-        console.log(`Hadith is from the book - ${hadithData.metadata.name}, hadith Number - ${hadithData.hadiths[0].hadithnumber} and the hadees is - ${hadithData.hadiths[0].text}`);
+        console.log
+        (` ---------------------------------------**** Date triggered - ${timestamp} ****---------------------------------------`)
+        console.log(`Hadith is from the book - ${hadithData.metadata.name},\nHadith Number - ${hadithData.hadiths[0].hadithnumber},\nHadees is - ${hadithData.hadiths[0].text}`);
         //  console.log(`Zen quote of the day: "${quoteData[0].q}" by "${quoteData[0].a}"`);
-
 
         let mailOptions = {
             from: '"ZenTimes" <abrar.ali75@gmail.com>', // sender address
-            to: reciepients,
+            to: 'abrar.ali75@gmail.com',
             subject: "Hadees of the Day🪷", // Subject line
             text: `Quotes of the day: Hadith is from the book - ${hadithData.metadata.name}, 
                    hadith Number - ${hadithData.hadiths[0].hadithnumber} and the hadees is 
