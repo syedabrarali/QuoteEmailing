@@ -26,11 +26,11 @@ let hadees_number_rowCount;
 
   //connection to local postgres db
   const pool = new Pool({
-    user: process.env.PG_USER,
-    host: process.env.PG_HOST,
-    database: process.env.PG_DB,
-    password: process.env.PG_PW,
-    port: process.env.PG_PORT,
+    user: "postgres",
+    host: "localhost",
+    database: "zenquote",
+    password: "25480863",
+    port: "5432",
   });
 
   // used max=4321 as the Sunan Ibn Majah has 4341 hadees in the
