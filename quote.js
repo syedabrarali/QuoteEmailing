@@ -26,15 +26,15 @@ let hadees_number_rowCount;
 
   //connection to local postgres db
   const pool = new Pool({
-    user: process.env.PG_USER,
-    host: process.env.PG_HOST,
-    database: process.env.PG_DB,
-    password: process.env.PG_PW,
-    port: process.env.PG_PORT,
+    user: "postgres",
+    host: "localhost",
+    database: "zenquote",
+    password: "25480863",
+    port: "5432",
   });
 
-  // used max=4321 as the Sunan Ibn Majah has 4341 hadees in the
-  let randomNumber = getRandomInt(process.env.HADEES_START_NO, process.env.HADEES_END_NO);
+  // used max=4341 as the Sunan Ibn Majah has 4341 hadees in the
+  let randomNumber = getRandomInt(1, 4341);
 
   async function getHadeesDatafromPG() {
     try {
@@ -99,7 +99,7 @@ async function getQuote() {
 
         let mailOptions = {
             from: '"ZenTimes" <abrar.ali75@gmail.com>', // sender address
-            to: 'abrar.ali75@gmail.com',
+            to: reciepients,
             subject: "Hadees of the Day🪷", // Subject line
             text: `Quotes of the day: Hadith is from the book - ${hadithData.metadata.name}, 
                    hadith Number - ${hadithData.hadiths[0].hadithnumber} and the hadees is 
