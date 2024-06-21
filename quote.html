@@ -1,0 +1,38 @@
+<!-- This below is the HTML template used in the script, this includes both quotes and hadees html-->
+
+<div class="container" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <div class="header" 
+         style="width: 100%;
+         overflow: hidden;">
+         <img src="https://source.unsplash.com/600x200/?zen,nature" alt="Zen Image">
+    </div> 
+    <div class="content" style="padding: 20px;
+                text-align: center;">
+        <div>
+          <h1><u>Hadith of the Day</u></h1>
+        </div>
+        <div class="hadith" style="font-size: 24px;
+                color: #333333;
+                margin: 20px 0;">${hadithData.hadiths[0].text}
+        </div>
+        <div 
+                class="hadith-ref" 
+                style="font-size: 18px;
+                color: #777777;
+                margin-top: -10px;">- From "${hadithData.metadata.name}", No.${hadithData.hadiths[0].hadithnumber}
+        </div>
+         <div>
+           <h1><u>Quote of the Day</u></h1>
+         </div>
+         <div class="quote" style="font-size: 24px;
+                 color: #333333;
+                 margin: 20px 0;">${quoteData[0].q}
+         </div>
+         <div 
+             class="author" 
+             style="font-size: 18px;
+             color: #777777;
+             margin-top: -10px;">- ${quoteData[0].a}
+         </div>
+    </div>
+</div>
