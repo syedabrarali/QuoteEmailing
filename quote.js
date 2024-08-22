@@ -12,8 +12,8 @@ let hadees_number_rowCount;
     port: "465",
     secure: true, // Use `true` for port 465, `false` for all other ports
     auth: {
-      user: "abrar.ali75@gmail.com",
-      pass: "saejwrjyxopcjdpr",
+      user: "Add your details here",
+      pass: "add your details here",
     },
   });
 
@@ -28,8 +28,8 @@ let hadees_number_rowCount;
   const pool = new Pool({
     user: "postgres",
     host: "localhost",
-    database: "zenquote",
-    password: "25480863",
+    database: "your local testing db name here",
+    password: "your pw here",
     port: "5432",
   });
 
